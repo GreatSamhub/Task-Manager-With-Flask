@@ -1,0 +1,26 @@
+{% extends 'base.html' %} <!--This line indicates that this template extends the 'base.html' template. It means that it inherits the structure defined in 'base.html' for consistency across different pages.-->
+
+{% block head %} <!--This block defines the head section of the HTML document. It sets the title of the page to "Task Master."-->
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Task</h1>
+    <div class="form">
+        <form action="/update/{{ task.id }}" method="POST">
+            <input type="text" name="content" id="content" value="{{ task.content }}">
+            <input type="submit" value="Update">
+        </form>
+    </div> 
+</div>
+{% endblock %}
+
+<!--This body block defines the body of the HTML document.
+Inside the div with the class "content," there is an h1 heading with the text "Update Task" centered.
+Inside another div with the class "form," there is a form for updating a task.
+The action attribute of the form points to the update route for the specific task ID.
+The form uses the HTTP POST method to submit the data.
+There's an input field of type text with the name "content" and an id "content." The value of this field is set to the current content of the task ({{ task.content }}).
+There's a submit button with the value "Update."
+In summary, this template provides a structured and styled view for updating a specific task. It displays a form with the current task content pre-filled, allowing the user to modify the content and submit the changes. The structure of the page is consistent with the overall layout defined in 'base.html.'-->
